@@ -60,7 +60,24 @@ function triangle(input, mode){
             }
         }
     }
+    else if(input > 0){
+        while(i < input){
+            str += "#";
+            console.log(str);
+            i ++;
+        }
+    }
+    else if (input < 0){
+        while(i < negToPos){
+            let negStr = "#";
+            let rptStr = negStr.repeat(negToPos);
+            console.log(rptStr)
+            negToPos--;
+        }
+    }
 }
+triangle(5);
+triangle(-5);
 triangle(5,"left");
 triangle(5,"right");
 triangle(-5,"isosceles");
