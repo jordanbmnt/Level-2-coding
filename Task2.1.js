@@ -1,16 +1,32 @@
 function square(num, string){
+    const originalStr = "#";
     let counter = num;
-    // let str = "#";
     let str = string;
     let output = "";
 
-    while(counter > 0){
-        output += str;
-        counter--;
+    if(typeof num === "number" && typeof string === "string"){
+        while(counter > 0){
+            output += str;
+            counter--;
+        }
+        while(num > 0){
+            console.log(output);
+            num--;
+        }
+    }else if(typeof num === "number"){
+        while(counter > 0){
+            output += originalStr;
+            counter--;
+        }
+        while(num > 0){
+            console.log(output);
+            num--;
+        }
+    }else if(typeof num === "string"){
+        console.log(num);
     }
-    while(num > 0){
-        console.log(output);
-        num--;
-    }
+  
 }
-square(4,"*")
+square("#")
+square(3)
+ square(4, "*")
