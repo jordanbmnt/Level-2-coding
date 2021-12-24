@@ -10,7 +10,24 @@ function triangle(input, mode){
             negStrPrinter(i, negToPos)
         }
     }else if(mode == "right"){
-            let counter = input;
+        rightTriangle(i,input,str);
+    }else if(mode == "isosceles"){
+        if(input > 0){
+            aboveZeroIsosceles(input);
+        }else if (input < 0){
+            belowZeroIsosceles(negToPos); 
+        }
+    }
+    else if(input > 0){
+        posStrPrinter(i, input, str);
+    }
+    else if (input < 0){
+        negStrPrinter(i, negToPos);
+    }
+}
+
+const rightTriangle = (i, input, str) =>{
+    let counter = input;
             let space = " ";
             while(i < input){
                 let addSpaces = space.repeat(counter-1);
@@ -20,24 +37,28 @@ function triangle(input, mode){
                 retStr = addSpaces+str;
                 console.log(retStr);
             }
-    }else if(mode == "isosceles"){
-        if(input > 0){
-            let i = 1;
-            let counter = input;
-            let space = " ";
-            let strInput = "#";
-            while(i <= input){
-                let addSpaces = space.repeat(counter-1);
-                let ouptutVar = (i * 2)-1;
-                let repeater = strInput.repeat(ouptutVar);
-                let outputStr = addSpaces+repeater+addSpaces
-                console.log(outputStr)
-                i++;
-                counter= counter -1;
-            }
-        }else if (input < 0){
-            let i = negToPos;
-            let counter = 0;
+}
+
+
+const aboveZeroIsosceles = (input) => {
+    let i = 1;
+    let counter = input;
+    let space = " ";
+    let strInput = "#";
+    while(i <= input){
+        let addSpaces = space.repeat(counter-1);
+        let ouptutVar = (i * 2)-1;
+        let repeater = strInput.repeat(ouptutVar);
+        let outputStr = addSpaces+repeater+addSpaces
+        console.log(outputStr)
+        i++;
+        counter= counter -1;
+    }
+}
+
+
+const belowZeroIsosceles = (i) => {
+    let counter = 0;
             let space = " ";
             let strInput = "#";
             while(i > 0){
@@ -49,15 +70,8 @@ function triangle(input, mode){
                 i--;
                 counter++;
             }
-        }
-    }
-    else if(input > 0){
-        posStrPrinter(i, input, str);
-    }
-    else if (input < 0){
-        negStrPrinter(i, negToPos);
-    }
 }
+
 
 const posStrPrinter = (index, inp, string) => {
     while(index < inp){
@@ -66,6 +80,7 @@ const posStrPrinter = (index, inp, string) => {
         index ++;
     }
 }
+
 
 const negStrPrinter = (index, inp) => {
     while(index < inp){
